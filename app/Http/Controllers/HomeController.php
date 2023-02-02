@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\form_data;
+use App\Models\InfoCat;
 use Illuminate\Http\Request;
+use Symfony\Polyfill\Intl\Idn\Info;
 
 class HomeController extends Controller
 {
@@ -28,8 +30,22 @@ class HomeController extends Controller
     }
 
     public function form(){
+        
         return view('form');
     }
+
+    public function option(){
+        $option = InfoCat::get(['options']);
+       
+        return response()->json( $option);
+
+    }
+    public function new_form(){
+        $option = InfoCat::get();
+        return view('new_form');
+    }
+
+
     public function form_data()
     {
         $result = form_data::get();
@@ -39,7 +55,7 @@ class HomeController extends Controller
     {
         // dd($request->agent_name);
         $request->validate([
-    		'quality_evaluator' => 'required',
+    		'quality_evaluator' => 'required|string|min:2|max:6',
     		'agent_name' => 'required',
     		'interaction_date' => 'required',
     		'evaluation_date' => 'required',

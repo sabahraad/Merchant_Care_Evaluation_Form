@@ -245,5 +245,12 @@ body {
             </div>
         </div>
     </div>
+    <script>
+        const category_select = document.getElementsByName("category")[0]
+        category_select.onchange = () => {
+            console.log(category_select.value)
+        }
+        console.log(category_select)
+    </script>
 </body>
 </html>

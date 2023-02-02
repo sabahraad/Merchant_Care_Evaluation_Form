@@ -23,5 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/form_data', [App\Http\Controllers\HomeController::class, 'form_data'])->name('form_data');
 Route::get('/form', [App\Http\Controllers\HomeController::class, 'form'])->name('form');
 Route::post('/from_data', [App\Http\Controllers\HomeController::class, 'data'])->name('data');
+Route::get('/new_form', [App\Http\Controllers\HomeController::class, 'new_form'])->name('new_form');
+Route::get('/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');
 
 
