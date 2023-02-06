@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\form_data;
 use App\Models\InfoCat;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Session;
 use Symfony\Polyfill\Intl\Idn\Info;
+use Brian2694\Toastr\Facades;
 
 class HomeController extends Controller
 {
@@ -31,15 +34,20 @@ class HomeController extends Controller
 
     public function form(){
         
-        return view('form');
+        return view('evaluation_form');
+    }
+    
+    public function option(Request $request){
+        $catetory = $request->get('category');
+        $option = InfoCat::get()->where('category',$catetory);
+        $html='<option value="">Select option</option>';
+		foreach($option as $list){
+			$html.='<option value="'.$list->options.'">'.$list->options.'</option>';
+		}
+		echo $html;
+
     }
 
-    public function option(){
-        $option = InfoCat::get(['options']);
-       
-        return response()->json( $option);
-
-    }
     public function new_form(){
         $option = InfoCat::get();
         return view('new_form');
@@ -53,20 +61,9 @@ class HomeController extends Controller
     }
     public function data(Request $request)
     {
-        // dd($request->agent_name);
-        $request->validate([
-    		'quality_evaluator' => 'required|string|min:2|max:6',
-    		'agent_name' => 'required',
-    		'interaction_date' => 'required',
-    		'evaluation_date' => 'required',
-    		'skill_group' => 'required',
-    		'category' => 'required',
-            'fatal_error' => 'required',
-            'training_required' => 'required',
-
-    	]);
-
+       
     	$data = new form_data;
+
         // dd($request->agent_name);
     	$data->quality_evaluator = $request->quality_evaluator;
     	$data->agent_name = $request->agent_name;
@@ -80,8 +77,7 @@ class HomeController extends Controller
 
     	$data->category = $request->category;
     	$data->information_sub_category = $request->information_sub_category;
-    	$data->complaint_sub_category = $request->complaint_sub_category;
-        $data->service_request_sub_category = $request->service_request_sub_category;
+    	
         
         $data->greetings = $request->greetings;
     	$data->care_and_enthusiasm = $request->care_and_enthusiasm;
@@ -102,15 +98,14 @@ class HomeController extends Controller
     	$data->behavior_training_topic = $request->behavior_training_topic;
     	$data->resolution_training_topic = $request->resolution_training_topic;
     	$data->comment = $request->comment;
-
     	if($data->save()){
+            // Toastr::success('Data Submitted','Submitted');
+            // $_SESSION['success'] = 'Data Submitted Successfully';
+            Session::flash('msg', 'Your Data Updated Successfully');
             return redirect('form_data');
 
         }
 
-        // $result = form_data::get();
-        // // dd($request);
-
-    	// return view ('form_data', compact('result'));
+        
     }
 }

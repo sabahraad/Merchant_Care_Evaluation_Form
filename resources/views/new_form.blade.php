@@ -18,14 +18,15 @@
 	<div class="page-content">
 		<div class="wizard-v5-content">
 			<div class="wizard-form">
-		        <form class="form-register" id="form-register" action="#" method="post">
+		        <form class="form-register" id="form-register" method="POST" action="{{route('data')}}">
+					@csrf
 		        	<div id="form-total">
 		        		<!-- SECTION 1 -->
 			            <h2>
-			            	<span class="step-icon"><i class="zmdi zmdi-check"></i></span>
+			            	<span class="step-icon" style="padding-left: 87px;"><i class="zmdi zmdi-check"></i></span>
 			            	<span class="step-text">Personal Information</span>
 			            </h2>
-			            <section>
+			            <section style="    padding-right: 107px;padding-left: 84px;">
 			                <div class="inner">
 								<div class="form-row">
 									<div class="form-holder">
@@ -85,10 +86,10 @@
 			            </section>
 						<!-- SECTION 2 -->
 			            <h2>
-			            	<span class="step-icon"><i class="zmdi zmdi-check"></i></span>
-			            	<span class="step-text">Bank Information</span>
+			            	<span class="step-icon"style="padding-left: 87px;"><i class="zmdi zmdi-check"></i></span>
+			            	<span class="step-text">Basic Information</span>
 			            </h2>
-			            <section>
+			            <section style="    padding-right: 107px;padding-left: 84px;"> 
 			                <div class="inner">
 								<div class="form-row">
 									<div class="form-holder">
@@ -114,7 +115,7 @@
 								<div class="form-row t1">
 									<div class="form-holder form-holder-2" id="information-subcategory-div">
 										<label for="exampleFormControlInput1" class="form-label">Information Sub-Category</label>
-                                    	<select class="form-select" aria-label="Default select example" name="Icategory" id="information-subcategory">
+                                    	<select class="form-select" aria-label="Default select example" name="information_sub_category" id="information-subcategory">
                                         <option selected>Choose a category</option>
                                         <option value="Information">Information</option>
                                         <option value="Complaint">Complaint</option>
@@ -125,7 +126,7 @@
 								<div class="form-row t2">
 									<div class="form-holder form-holder-2" id="compliant-subcategory-div">
 										<label for="exampleFormControlInput1" class="form-label">Compliant Sub-Category</label>
-                                    <select class="form-select" aria-label="Default select example" name="Ccategory" id="compliant-subcategory">
+                                    <select class="form-select" aria-label="Default select example" name="complaint_sub_category" id="compliant-subcategory">
                                         <option selected>Choose a category</option>
                                         <option value="Information">Information</option>
                                         <option value="Complaint">Complaint</option>
@@ -136,7 +137,7 @@
 								<div class="form-row t3">
 									<div class="form-holder form-holder-2" id="service-request-subcategory-div">
 										<label for="exampleFormControlInput1" class="form-label">Service Request Sub-Category</label>
-                                    <select class="form-select" aria-label="Default select example" name="Scategory" id="service-request-subcategory">
+                                    <select class="form-select" aria-label="Default select example" name="service_request_sub_category" id="service-request-subcategory">
                                         <option selected>Choose a category</option>
                                         <option value="Information">Information</option>
                                         <option value="Complaint">Complaint</option>
@@ -155,24 +156,7 @@
                                     </select>
 									</div>
 								</div>
-                                  <div class="form-group">
-                                    <label for="seeAnotherField">Do You Want To See Another Field?</label>
-                                    <select class="form-control" id="seeAnotherField">
-                                            <option value="no">No Way.</option>
-                                            <option value="yes">Absolutely!</option>
-                                    </select>
-                                    </div>
-                                    
-                                    <div class="form-group" id="otherFieldDiv">
-                                    <label for="otherField">Here you go!</label>
-                                    <select class="form-control" id="otherField">
-                                        <option>Yay</option>
-                                        <option>Woo</option>
-                                        <option>Hazah</option>
-                                        <option>Yipee</option>
-                                        <option>Hoorah</option>
-                                    </select>
-                                    </div>
+                               
 								<div class="form-row">
 									<div class="form-holder form-holder-2">
 										<label for="exampleFormControlInput1" class="form-label">Care & Enthusiasm</label>
@@ -184,7 +168,7 @@
                                     </select>
 									</div>
 								</div>
-								<div class="form-row form-row-date form-row-step-2">
+								<div class="form-row ">
 									<div class="form-holder form-holder-2">
 										<label for="exampleFormControlInput1" class="form-label">Communication</label>
 										<select class="form-select" aria-label="Default select example" name="communication">
@@ -199,115 +183,170 @@
 			            </section>
 			            <!-- SECTION 3 -->
 			            <h2>
-			            	<span class="step-icon"><i class="zmdi zmdi-check"></i></span>
-			            	<span class="step-text">Confirm Details</span>
+			            	<span class="step-icon"style="padding-left: 87px;"><i class="zmdi zmdi-check"></i></span>
+			            	<span class="step-text">Basic Information</span>
 			            </h2>
-			            <section>
+			            <section >
 			                <div class="inner">
 								<div class="form-row">
-									<div class="form-holder">
-										<label for="exampleFormControlInput1" class="form-label">Case no. (NA if not available)</label>
-                                    <input class="form-control" id="exampleFormControlInput1" rows="3" name="case_no"></input>
-									</div>
-									<div class="form-holder">
-										<label for="exampleFormControlInput1" class="form-label">Order No. (NA if not available)</label>
-                                    <input class="form-control" id="exampleFormControlInput1" rows="3" name="order_no"></input>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label for="exampleFormControlInput1" class="form-label test">Category</label>
-                                    	<select class="form-select" aria-label="Default select example" name="category-select">
-                                        <option selected>Choose a category</option>
-                                        <option value="Information">Information</option>
-                                        <option value="Complaint">Complaint</option>
-                                        <option value="Service Request">Service Request</option>
-                                    </select>
-									</div>
-								</div>
-								<div class="form-row t1">
-									<div class="form-holder form-holder-2" id="information-subcategory">
-										<label for="exampleFormControlInput1" class="form-label">Information Sub-Category</label>
-                                    	<select class="form-select" aria-label="Default select example" name="catecgory">
-                                        <option selected>Choose a category</option>
-                                        <option value="Information">Information</option>
-                                        <option value="Complaint">Complaint</option>
-                                        <option value="Service Request">Service Request</option>
-                                    </select>
-									</div>
-								</div>
-								<div class="form-row t2">
-									<div class="form-holder form-holder-2" id="compliant-subcategory">
-										<label for="exampleFormControlInput1" class="form-label">Compliant Sub-Category</label>
-                                    <select class="form-select" aria-label="Default select example" name="categdory" id="cd">
-                                        <!-- <option selected>Choose a category</option>
-                                        <option value="Information">Information</option>
-                                        <option value="Complaint">Complaint</option>
-                                        <option value="Service Request">Service Request</option> -->
-                                    </select>
-									</div>
-								</div>
-								<div class="form-row t3">
-									<div class="form-holder form-holder-2" id="service-request-subcategory">
-										<label for="exampleFormControlInput1" class="form-label">Service Request Sub-Category</label>
-                                    <select class="form-select" aria-label="Default select example" name="categdfory">
-                                        <option selected>Choose a category</option>
-                                        <option value="Information">Information</option>
-                                        <option value="Complaint">Complaint</option>
-                                        <option value="Service Request">Service Request</option>
-                                    </select>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label for="exampleFormControlInput1" class="form-label">Greeting</label>
-                                    <select class="form-select" aria-label="Default select example" name="greetings">
-                                        <option selected>Choose a greetings</option>
+								<div class="form-holder form-holder-2">
+                                    <label for="exampleFormControlInput1" class="form-label">Soft Skills</label>
+                                    <select class="form-select" aria-label="Default select example" name="soft_skills">
+                                        <option selected>Choose a soft skills</option>
                                         <option value="12">12</option>
                                         <option value="6">6</option>
                                         <option value="3">3</option>
                                     </select>
-									</div>
+                                </div>
 								</div>
 								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label for="exampleFormControlInput1" class="form-label">Care & Enthusiasm</label>
-                                    <select class="form-select" aria-label="Default select example" name="care_and_enthusiasm">
-                                        <option selected>Choose a care & enthusiasm</option>
+								<div class="form-holder form-holder-2">
+                                    <label for="exampleFormControlInput1" class="form-label">Interaction Handling Skills</label>
+                                    <select class="form-select" aria-label="Default select example" name="interaction_handling_skills">
+                                        <option selected>Choose a interaction handling skills</option>
                                         <option value="12">12</option>
                                         <option value="6">6</option>
                                         <option value="3">3</option>
                                     </select>
-									</div>
+                                </div>
 								</div>
-								<div class="form-row form-row-date form-row-step-2">
-									<div class="form-holder form-holder-2">
-										<label for="exampleFormControlInput1" class="form-label">Communication</label>
-										<select class="form-select" aria-label="Default select example" name="communication">
-											<option selected>Choose a communication</option>
-											<option value="12">12</option>
-											<option value="6">6</option>
-											<option value="3">3</option>
-										</select>
-									</div>
+								<div class="form-row">
+								<div class="form-holder form-holder-2">
+                                    <label for="exampleFormControlInput1" class="form-label">Probing</label>
+                                    <select class="form-select" aria-label="Default select example" name="probing">
+                                        <option selected>Choose a probing</option>
+                                        <option value="10">10</option>
+                                        <option value="5">5</option>
+                                        <option value="fatal error">fatal error</option>
+                                    </select>
+                                </div>
+								</div>
+								<div class="form-row ">
+								<div class="form-holder form-holder-2">
+                                    <label for="exampleFormControlInput1" class="form-label">System Usage & Action</label>
+                                    <select class="form-select" aria-label="Default select example" name="system_usage_and_action">
+                                        <option selected>Choose a system_usage_&_action</option>
+                                        <option value="10">10</option>
+                                        <option value="5">5</option>
+                                        <option value="fatal error">fatal error</option>
+                                    </select>
+                                </div>
+								</div>
+								<div class="form-row ">
+								<div class="form-holder form-holder-2">
+                                    <label for="exampleFormControlInput1" class="form-label">SOP Followed</label>
+                                    <select class="form-select" aria-label="Default select example" name="sop_followed">
+                                        <option selected>Choose a sop_followed</option>
+                                        <option value="10">10</option>
+                                        <option value="5">5</option>
+                                        <option value="fatal error">fatal error</option>
+                                    </select>
+                                </div>
+								</div>
+								<div class="form-row">
+								<div class="form-holder form-holder-2">
+                                    <label for="exampleFormControlInput1" class="form-label">Correct/Complete Information</label>
+                                    <select class="form-select" aria-label="Default select example" name="correct_info">
+                                        <option selected>Choose a correct_info</option>
+                                        <option value="10">10</option>
+                                        <option value="5">5</option>
+                                        <option value="fatal error">fatal error</option>
+                                    </select>
+                                </div>
+								</div>
+								<div class="form-row">
+								<div class="form-holder form-holder-2">
+                                    <label for="exampleFormControlInput1" class="form-label">Fatal error</label>
+                                    <select class="form-select" aria-label="Default select example" name="fatal_error">
+                                        <option selected>Choose a fatal_error</option>
+                                        <option value="yes">yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+								</div>
+								<div class="form-row">
+								<div class="form-holder form-holder-2">
+                                    <label for="exampleFormControlInput1" class="form-label">Fatal_reason</label>
+                                    <select class="form-select" aria-label="Default select example" name="Fatal_reason">
+                                        <option selected>Choose a Fatal_reason</option>
+                                        <option value="yes">yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+								</div>
+								<div class="form-row">
+								<div class="form-holder form-holder-2" id="training_required_div">
+								<label for="exampleFormControlInput1" class="form-label">Training Required</label>
+                                    <select class="form-select" aria-label="Default select example" name="training_required" id="training_required">
+                                        <option selected>Choose a training_required</option>
+                                        <option value="yes">yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+								</div>
+								<div class="form-row">
+								<div class="form-holder form-holder-2" id="training_agenda_div">
+								<label for="exampleFormControlInput1" class="form-label">Training Agenda</label>
+                                    <select class="form-select" aria-label="Default select example" name="training_agenda" id="training_agenda">
+                                        <option selected>Choose a training_agenda</option>
+                                        <option value="Behavior">Behavior</option>
+                                        <option value="Resolution">Resolution</option>
+                                    </select>
+                                </div>
+								</div>
+								<div class="form-row">
+								<div class="form-holder form-holder-2" id="behavior_training_topic_div">
+								<label for="exampleFormControlInput1" class="form-label">Behavior Training Topic</label>
+                                    <select class="form-select" aria-label="Default select example" name="behavior_training_topic" id="behavior_training_topic">
+                                        <option selected>Choose a behavior_training_topic</option>
+                                        <option value="sdf">sdf</option>
+                                        <option value="sdf">sdf</option>
+                                    </select>
+                                </div>
+								</div>
+								<div class="form-row">
+								<div class="form-holder form-holder-2" id="resolution_training_topic_div">
+								<label for="exampleFormControlInput1" class="form-label">Resolution Training Topic</label>
+                                    <select class="form-select" aria-label="Default select example" name="resolution_training_topic" id="resolution_training_topic">
+                                        <option selected>Choose a resolution_training_topic</option>
+                                        <option value="sdf">sdf</option>
+                                        <option value="sdf">sdf</option>
+                                    </select>
+                                </div>
+								</div>
+								<div class="form-row">
+								<div class="form-holder form-holder-2">
+								<label for="exampleFormControlInput1" class="form-label">Comments Box</label>
+                                    <textarea class="form-control" id="exampleFormControlInput1" rows="3" name="comment"></textarea>
+                                </div>
+								</div>
+
+								<button type="submit" class="btn btn-primary">Submit</button>
+
 								</div>
 							</div>
 			            </section>
+						
 		        	</div>
 		        </form>
 			</div>
 		</div>
 	</div>
-	<!-- <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script> 
+	<script src="{{asset('js/jquery-3.6.1.min.js')}}"></script>
 	<script src="{{asset('js/jquery.steps.js')}}"></script>
-	<script src="{{asset('js/main.js')}}"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="{{asset('js/main.js')}}"></script>
 
-
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>  -->
 	<script>
+		const category = document.querySelector("#category")
+		category.onchange = (e) => {
+			console.log(e.target.value)
+		}
+		console.log(category)
+
        
         $("#category").change(function() {
-            console.log($(this).val())
+            // console.log($(this).val())
             if ($(this).val() === "Information") {
             $('#information-subcategory-div').show();
             $('#information-subcategory').attr('required', '');
@@ -337,18 +376,34 @@
             $('#service-request-subcategory').removeAttr('required');
             $('#service-request-subcategory').removeAttr('data-error');
             }
-            });
-            $("#category").trigger("change");
-                
-            $.ajax({
-                type: "GET",
-                url: "http://localhost:8000/option",
+			$.ajax({
+                type: "get",
+                url: "http://localhost:8000/option/?category="+$(this).val(),
                 success: function(data) {
-
-                    
+					console.log(data);
+                    $("#information-subcategory").html(data)
                 }
             });
+
+            });
+            $("#category").trigger("change");
+
+			
+			$("#training_required").change(function() {
+            if ($(this).val() === "yes") {
+            $('#training_agenda_div').show();
+            $('#behavior_training_topic_div').show();
+            $('#resolution_training_topic_div').show();
+            } else {
+			$('#training_agenda_div').hide();
+            $('#behavior_training_topic_div').hide();
+            $('#resolution_training_topic_div').hide();
+            }
+
+            });
+            $("#training_required").trigger("change");
        
+		
 	</script>
 
 </body>

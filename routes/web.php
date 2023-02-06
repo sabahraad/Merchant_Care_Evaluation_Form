@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -25,5 +25,6 @@ Route::get('/form', [App\Http\Controllers\HomeController::class, 'form'])->name(
 Route::post('/from_data', [App\Http\Controllers\HomeController::class, 'data'])->name('data');
 Route::get('/new_form', [App\Http\Controllers\HomeController::class, 'new_form'])->name('new_form');
 Route::get('/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');
+Route::post('/informationSubcategory', [App\Http\Controllers\HomeController::class, 'informationSubcategory'])->name('informationSubcategory');
 
 
