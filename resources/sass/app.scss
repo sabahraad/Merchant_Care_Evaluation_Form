@@ -4,6 +4,14 @@
 // Variables
 @import 'variables';
 
+a {
+    color: var(--bs-link-color);
+    text-decoration: none;
+    padding: 8px;
+    cursor: pointer;
+
+}
+
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 dl, ol, ul{

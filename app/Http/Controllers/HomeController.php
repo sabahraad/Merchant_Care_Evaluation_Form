@@ -47,16 +47,9 @@ class HomeController extends Controller
 		echo $html;
 
     }
-
-    public function new_form(){
-        $option = InfoCat::get();
-        return view('new_form');
-    }
-
-
     public function form_data()
     {
-        $result = form_data::get();
+        $result = form_data::orderBy('created_at','DESC')->get();
         return view('form_data',compact('result'));
     }
     public function data(Request $request)
@@ -99,10 +92,8 @@ class HomeController extends Controller
     	$data->resolution_training_topic = $request->resolution_training_topic;
     	$data->comment = $request->comment;
     	if($data->save()){
-            // Toastr::success('Data Submitted','Submitted');
-            // $_SESSION['success'] = 'Data Submitted Successfully';
             Session::flash('msg', 'Your Data Updated Successfully');
-            return redirect('form_data');
+            return redirect('form');
 
         }
 

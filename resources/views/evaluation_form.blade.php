@@ -14,15 +14,19 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('css/raad_form.css')}}">
     
-    <title>Document</title>
+    <title>Merchant Care Evaluation</title>
 </head>
 <body translate="no">
     <!-- MultiStep Form -->
     <div  class="center">
-    <a href="#"><img src="https://aamarpay.com/images/logo/aamarpay_logo.png" alt="image"></a>
+      <a href="#"><img src="https://aamarpay.com/images/logo/aamarpay_logo.png" alt="image"></a>
     </div>
-  <div class=bColor>
-      <div class="col-md-12 col-md-offset-3">
+    <form method="get" action="{{route('form_data')}}" class="mb-3">
+                  <button type="submit" class=" btn btn-primary btn-sm fcolor">Evaluation details</button>
+            </form>
+    <div class=bColor>
+    
+        <div class="col-md-12 col-md-offset-3">
           <form id="msform" method="POST" action="{{route('data')}}">
           @csrf
               <!-- progressbar -->
@@ -37,13 +41,11 @@
               <!-- fieldset 1 start -->
               <fieldset>
                   <h2 class="fs-title">Personal Details</h2>
-                  <h3 class="fs-subtitle">Tell us something more about you</h3>
-                    <select type="text" class="form-select" aria-label="Default select example" name="quality_evaluator">
-                        <option selected>Choose a quality evaluator</option>
+                    <select type="text" class="form-select" aria-label="Default select example" name="quality_evaluator"Required name="Choose a Quality Evaluator" placeholder="Choose a Quality Evaluator" Required>
                         <option value="Rubina Akter">Rubina Akter</option>
                         <option value="Md.Ashikur Rahman Ashik">Md. Ashikur Rahman Ashik</option>
                     </select>
-                    <select class="form-select" aria-label="Default select example" name="agent_name">
+                    <select class="form-select" aria-label="Default select example" name="agent_name"Required>
                         <option selected>Choose a agent name</option>
                         <option value="Mazharul Islam (Inbound & Lead management system)">Mazharul Islam (Inbound & Lead management system)</option>
                         <option value="Reshma Akter (Inbound)">Reshma Akter (Inbound)</option>
@@ -54,9 +56,9 @@
                         <option value="Rabeya Basri (Tele Sales)">Rabeya Basri (Tele Sales)</option>
                         <option value="Afnan Dewan (Tele Sales)">Afnan Dewan (Tele Sales)</option>
                     </select>
-                  <input type="text" name="interaction_date" placeholder="Interaction Date" onfocus="(this.type='date')" onblur="(this.type='text')">
-                  <input type="text" name="evaluation_date" placeholder="Evaluation Date" onfocus="(this.type='date')" onblur="(this.type='text')">
-                  <select class="form-select" aria-label="Default select example" name="skill_group" id="skill_group">
+                  <input type="text" Required name="interaction_date" placeholder="Interaction Date" onfocus="(this.type='date')" onblur="(this.type='text')">
+                  <input type="text"  Required name="evaluation_date" placeholder="Evaluation Date" onfocus="(this.type='date')" onblur="(this.type='text')">
+                  <select class="form-select" aria-label="Default select example" name="skill_group" id="skill_group"Required>
                     <option selected>Choose a skill group</option>
                     <option value="InBound">InBound</option>
                     <option value="OutBound">OutBound</option>
@@ -69,7 +71,6 @@
               <!-- fieldset 2 start -->
               <fieldset>
                   <h2 class="fs-title">Category</h2>
-                  <h3 class="fs-subtitle">Your presence on the social network</h3>
                   <select class="form-select" aria-label="Default select example" name="sampling_type">
                     <option selected>Choose a sampling type</option>
                     <option value="Random">Random</option>
@@ -146,8 +147,7 @@
 
               <!-- fieldset 3 start -->
               <fieldset>
-                  <h2 class="fs-title">Create your account</h2>
-                  <h3 class="fs-subtitle">Fill in your credentials</h3>
+                  <h2 class="fs-title">Step 3</h2>
                   <select class="form-select" aria-label="Default select example" name="greetings">
                     <option selected>Choose a greetings</option>
                     <option value="12">12</option>
@@ -185,8 +185,7 @@
 
               <!-- fieldset 4 start -->
               <fieldset>
-                <h2 class="fs-title">Social Profiles</h2>
-                <h3 class="fs-subtitle">Your presence on the social network</h3>
+                <h2 class="fs-title">Step 4</h2>
                 <select class="form-select" aria-label="Default select example" name="probing">
                     <option selected>Choose a probing</option>
                     <option value="10">10</option>
@@ -223,24 +222,40 @@
 
             <!-- fieldset 5 start -->
             <fieldset>
-                  <h2 class="fs-title">Create your account</h2>
-                  <h3 class="fs-subtitle">Fill in your credentials</h3>
+                  <h2 class="fs-title">Traninig</h2>
+                  <h3 class="fs-subtitle">Traninig</h3>
                   <select class="form-select" aria-label="Default select example" name="Fatal_reason">
                     <option selected>Choose a Fatal_reason</option>
-                    <option value="yes">yes</option>
-                    <option value="no">No</option>
+                    <option value="Negative or Harsh tone">Negative or Harsh tone</option>
+                    <option value="Agent was condescending or sarcastic">Agent was condescending or sarcastic</option>
+                    <option value="Usages of inappropriate language">Usages of inappropriate language</option>
+                    <option value="Being rude to the merchant /buyer">Being rude to the merchant /buyer</option>
+                    <option value="Said No to buyer/merchant directly or without apology">Said No to buyer/merchant directly or without apology</option>
+                    <option value="Did not use buyer/merchant 's preferred language">Did not use buyer/merchant 's preferred language</option>
+                    <option value="Ended interaction suddenly/abruptly (Hang up)">Ended interaction suddenly/abruptly (Hang up)</option>
+                    <option value="The probing was irrelevant and prolonged interaction unnecessarily">The probing was irrelevant and prolonged interaction unnecessarily</option>
+                    <option value="Agent didn't check all relevant portals before providing information">Agent didn't check all relevant portals before providing information</option>
+                    <option value="Incorrect template selected/edited">Incorrect template selected/edited</option>
+                    <option value="Wrong Category Selected">Wrong Category Selected</option>
+                    <option value="Wrong Tagging (Social)">Wrong Tagging (Social)</option>
+                    <option value="Wrong Sentiment (Social)">Wrong Sentiment (Social)</option>
+                    <option value="Agent took the wrong system action/made incorrect case/escalation or took no action">Agent took the wrong system action/made incorrect case/escalation or took no action</option>
+                    <option value="Agent did not follow correct SOP as per scenario">Agent did not follow correct SOP as per scenario</option>
+                    <option value="Agent provided incorrect or incomplete information to buyer/merchant">Agent provided incorrect or incomplete information to buyer/merchant</option>
+
                 </select>                 
                 <select class="form-select" aria-label="Default select example" name="training_required" id="training_required">
                     <option selected>Choose a training_required</option>
                     <option value="yes">yes</option>
                     <option value="no">No</option>
                 </select>
-                <div id="training_div">
+                <div id="training_agenda">
                     <select class="form-select" aria-label="Default select example" name="training_agenda" id="training_agenda">
                         <option selected>Choose a training_agenda</option>
                         <option value="Behavior">Behavior</option>
                         <option value="Resolution">Resolution</option>
                     </select>
+                </div>
                     <select class="form-select" aria-label="Default select example" name="behavior_training_topic" id="behavior_training_topic">
                         <option selected>Choose a behavior_training_topic</option>
                         <option value="Greeting">Greeting</option>
@@ -257,13 +272,13 @@
                         <option value="SOP Followed">SOP Followed</option>
                         <option value="Correct/Complete Information">Correct/Complete Information</option>
                     </select>
-                </div>
+                
                 
                 <textarea type="textarea" name="comment" placeholder="Comment" rows="5"></textarea>
                 <input type="button" name="previous" class="previous action-button-previous" value="Previous">
                 <!-- <input type="submit"  class="submit action-button" value="Submit"> -->
-                <button type="submit" class="btn btn-primary" onclick="myFunction()">Submit</button>
-
+                <button type="submit" class="btn btn-primary" >Submit</button>
+                </div>
               </fieldset>
             <!-- fieldset 5 end -->
 
@@ -286,16 +301,31 @@
 
     const select = document.querySelector('#training_required');
     const div = document.querySelector('#training_div');
-    div.style.display='none';
+    const agenda = document.querySelector('#training_agenda');
+    const behavior = document.querySelector('#behavior_training_topic');
+    const training=document.querySelector('#resolution_training_topic');
+    agenda.style.display='none';
+    training.style.display='none';
+    behavior.style.display='none';
 
+// console.log(agenda,training,behavior);
     select.addEventListener('change', function() {
     const selectedValue = this.value;
     if (selectedValue === 'yes') {
-        div.style.display = 'block';
+        agenda.style.display = 'block';
     } else {
-        div.style.display = 'none';
+        agenda.style.display = 'none';
     }
     });
+  agenda.addEventListener('change',function(){
+
+    const selectedValue =this.value;
+    if(selectedValue=='Behavior'){
+      behavior.style.display='block';
+    }else{
+      training.style.display='block';
+    }
+  });
   
   $(".next").click(function () {
     if (animating) return false;
