@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./raad_form.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -21,7 +20,7 @@
     <div  class="center">
       <a href="#"><img src="https://aamarpay.com/images/logo/aamarpay_logo.png" alt="image"></a>
     </div>
-    <form method="get" action="{{route('form_data')}}" class="mb-3">
+    <form method="get" action="{{route('form_data')}}" class="mb-3"style="text-align: center;background-color: #ecf5ff;margin-bottom: -1px!important;">
                   <button type="submit" class=" btn btn-primary btn-sm fcolor">Evaluation details</button>
             </form>
     <div class=bColor>
@@ -41,12 +40,13 @@
               <!-- fieldset 1 start -->
               <fieldset>
                   <h2 class="fs-title">Personal Details</h2>
-                    <select type="text" class="form-select" aria-label="Default select example" name="quality_evaluator"Required name="Choose a Quality Evaluator" placeholder="Choose a Quality Evaluator" Required>
+                    <select type="text" class="form-select" aria-label="Default select example" name="quality_evaluator" placeholder="Choose a Quality Evaluator">
+                        <option value="" disabled selected>Choose a Quality Evaluator</option>
                         <option value="Rubina Akter">Rubina Akter</option>
                         <option value="Md.Ashikur Rahman Ashik">Md. Ashikur Rahman Ashik</option>
                     </select>
-                    <select class="form-select" aria-label="Default select example" name="agent_name"Required>
-                        <option selected>Choose a agent name</option>
+                    <select class="form-select" aria-label="Default select example" name="agent_name" placeholder="Choose a agent name">
+                        <option value="" disabled selected>Choose a agent name</option>
                         <option value="Mazharul Islam (Inbound & Lead management system)">Mazharul Islam (Inbound & Lead management system)</option>
                         <option value="Reshma Akter (Inbound)">Reshma Akter (Inbound)</option>
                         <option value="Abida sultana mou (Outbound)">Abida sultana mou (Outbound)</option>
@@ -58,8 +58,8 @@
                     </select>
                   <input type="text" Required name="interaction_date" placeholder="Interaction Date" onfocus="(this.type='date')" onblur="(this.type='text')">
                   <input type="text"  Required name="evaluation_date" placeholder="Evaluation Date" onfocus="(this.type='date')" onblur="(this.type='text')">
-                  <select class="form-select" aria-label="Default select example" name="skill_group" id="skill_group"Required>
-                    <option selected>Choose a skill group</option>
+                  <select class="form-select" aria-label="Default select example" name="skill_group" id="skill_group"placeholder="Choose a skill group">
+                    <option value="" disabled selected>Choose a skill group</option>
                     <option value="InBound">InBound</option>
                     <option value="OutBound">OutBound</option>
                     <option value="tele-sales">tele-sales</option>
@@ -71,22 +71,22 @@
               <!-- fieldset 2 start -->
               <fieldset>
                   <h2 class="fs-title">Category</h2>
-                  <select class="form-select" aria-label="Default select example" name="sampling_type">
-                    <option selected>Choose a sampling type</option>
+                  <select class="form-select" aria-label="Default select example" name="sampling_type"placeholder="Choose a sampling type">
+                    <option value="" disabled selected>Choose a sampling type</option>
                     <option value="Random">Random</option>
                     <option value="FeedBack">FeedBack</option>
                     <option value="Interaction DSAT">Interaction DSAT</option>
                   </select>
-                  <input type="text" name="case_no" placeholder="Case No">
-                  <input type="text" name="order_no" placeholder="Order No">
-                  <select class="form-select" aria-label="Default select example" name="category">
-                    <option selected>Choose a category</option>
+                  <input type="text" class="optional" name="case_no" placeholder="Case No">
+                  <input type="text" class="optional" name="order_no" placeholder="Order No">
+                  <select class="form-select" aria-label="Default select example" name="category" placeholder="Choose a category">
+                    <option value="" disabled selected>Choose a category</option>
                     <option value="Information">Information</option>
                     <option value="Complaint">Complaint</option>
                     <option value="Service Request">Service Request</option>
                 </select>
-                <select class="form-select" aria-label="Default select example" name="information_sub_category">
-                    <option selected>Choose a information_sub_category</option>
+                <select class="form-select" aria-label="Default select example" name="information_sub_category"placeholder="Choose a information sub category">
+                    <option value="" disabled selected>Choose a information_sub_category</option>
                     <option value="Campaign & promotion info">Campaign & promotion info</option>
                     <option value="Account Deactivation/Reactivation">Account Deactivation/Reactivation</option>
                     <option value="Pricing & packages Info">Pricing & packages Info</option>
@@ -147,36 +147,46 @@
 
               <!-- fieldset 3 start -->
               <fieldset>
-                  <h2 class="fs-title">Step 3</h2>
-                  <select class="form-select" aria-label="Default select example" name="greetings">
-                    <option selected>Choose a greetings</option>
+                  <h2 class="fs-title">Marking</h2>
+                  <select class="form-select" aria-label="Default select example" name="greetings"placeholder="Choose Greetings">
+                    <option value="" disabled selected>Choose a greetings</option>
                     <option value="12">12</option>
                     <option value="6">6</option>
                     <option value="3">3</option>
+                    <option value="fatal error">fatal error</option>
+
                 </select>                  
-                <select class="form-select" aria-label="Default select example" name="care_and_enthusiasm">
-                    <option selected>Choose a care & enthusiasm</option>
+                <select class="form-select" aria-label="Default select example" name="care_and_enthusiasm" placeholder="Choose a care & enthusiasm">
+                    <option value="" disabled selected>Choose a care & enthusiasm</option>
                     <option value="12">12</option>
                     <option value="6">6</option>
                     <option value="3">3</option>
+                    <option value="fatal error">fatal error</option>
+
                 </select>
-                <select class="form-select" aria-label="Default select example" name="communication">
-                    <option selected>Choose a communication</option>
+                <select class="form-select" aria-label="Default select example" name="communication" placeholder="Choose a communication">
+                    <option value="" disabled selected>Choose a communication</option>
                     <option value="12">12</option>
                     <option value="6">6</option>
                     <option value="3">3</option>
+                    <option value="fatal error">fatal error</option>
+
                 </select>
-                <select class="form-select" aria-label="Default select example" name="soft_skills">
-                    <option selected>Choose a soft skills</option>
+                <select class="form-select" aria-label="Default select example" name="soft_skills"placeholder="Choose a soft skills">
+                    <option value="" disabled selected>Choose a soft skills</option>
                     <option value="12">12</option>
                     <option value="6">6</option>
                     <option value="3">3</option>
+                    <option value="fatal error">fatal error</option>
+
                 </select>
-                <select class="form-select" aria-label="Default select example" name="interaction_handling_skills">
-                    <option selected>Choose a interaction handling skills</option>
+                <select class="form-select" aria-label="Default select example" name="interaction_handling_skills" placeholder="Choose a interaction handling skills">
+                    <option value="" disabled selected>Choose a interaction handling skills</option>
                     <option value="12">12</option>
                     <option value="6">6</option>
                     <option value="3">3</option>
+                    <option value="fatal error">fatal error</option>
+
                 </select>
                 <input type="button" name="previous" class="previous action-button-previous" value="Previous">
                 <input type="button" name="next" class="next action-button" value="Next">
@@ -185,33 +195,33 @@
 
               <!-- fieldset 4 start -->
               <fieldset>
-                <h2 class="fs-title">Step 4</h2>
-                <select class="form-select" aria-label="Default select example" name="probing">
-                    <option selected>Choose a probing</option>
+                <h2 class="fs-title">Error Type</h2>
+                <select class="form-select" aria-label="Default select example" name="probing"placeholder="Choose a probing">
+                    <option value="" disabled selected>Choose a probing</option>
                     <option value="10">10</option>
                     <option value="5">5</option>
                     <option value="fatal error">fatal error</option>
                 </select>
-                <select class="form-select" aria-label="Default select example" name="system_usage_and_action">
-                    <option selected>Choose a system_usage_&_action</option>
+                <select class="form-select" aria-label="Default select example" name="system_usage_and_action"placeholder="Choose a system_usage_&_action">
+                    <option value="" disabled selected>Choose a system_usage_&_action</option>
                     <option value="10">10</option>
                     <option value="5">5</option>
                     <option value="fatal error">fatal error</option>
                 </select>
-                <select class="form-select" aria-label="Default select example" name="sop_followed">
-                    <option selected>Choose a sop_followed</option>
+                <select class="form-select" aria-label="Default select example" name="sop_followed"placeholder="Choose a sop_followed">
+                    <option value="" disabled selected>Choose a sop_followed</option>
                     <option value="10">10</option>
                     <option value="5">5</option>
                     <option value="fatal error">fatal error</option>
                 </select>
-                <select class="form-select" aria-label="Default select example" name="correct_info">
-                    <option selected>Choose a correct_info</option>
+                <select class="form-select" aria-label="Default select example" name="correct_info"placeholder="Choose a correct_info">
+                    <option value="" disabled selected>Choose a correct_info</option>
                     <option value="10">10</option>
                     <option value="5">5</option>
                     <option value="fatal error">fatal error</option>
                 </select>
-                <select class="form-select" aria-label="Default select example" name="fatal_error">
-                    <option selected>Choose a fatal_error</option>
+                <select class="form-select" aria-label="Default select example" name="fatal_error"placeholder="Choose a Fatal Error">
+                    <option value="" disabled selected>Choose a fatal_error</option>
                     <option value="yes">yes</option>
                     <option value="no">No</option>
                 </select>
@@ -224,8 +234,8 @@
             <fieldset>
                   <h2 class="fs-title">Traninig</h2>
                   <h3 class="fs-subtitle">Traninig</h3>
-                  <select class="form-select" aria-label="Default select example" name="Fatal_reason">
-                    <option selected>Choose a Fatal_reason</option>
+                  <select class="form-select" aria-label="Default select example" name="Fatal_reason" id="fatal_reason_id" placeholder="Choose a Fatal Reason">
+                    <option value="" disabled selected>Choose a Fatal_reason</option>
                     <option value="Negative or Harsh tone">Negative or Harsh tone</option>
                     <option value="Agent was condescending or sarcastic">Agent was condescending or sarcastic</option>
                     <option value="Usages of inappropriate language">Usages of inappropriate language</option>
@@ -244,20 +254,19 @@
                     <option value="Agent provided incorrect or incomplete information to buyer/merchant">Agent provided incorrect or incomplete information to buyer/merchant</option>
 
                 </select>                 
-                <select class="form-select" aria-label="Default select example" name="training_required" id="training_required">
-                    <option selected>Choose a training_required</option>
+                <select class="form-select" aria-label="Default select example" name="training_required" id="training_required" placeholder="Choose a Training Required">
+                    <option value="" disabled selected>Choose a training_required</option>
                     <option value="yes">yes</option>
                     <option value="no">No</option>
                 </select>
-                <div id="training_agenda">
-                    <select class="form-select" aria-label="Default select example" name="training_agenda" id="training_agenda">
-                        <option selected>Choose a training_agenda</option>
+                <div id="training_agenda_div">
+                    <select class="form-select optional"  aria-label="Default select example" name="training_agenda" id="training_agenda"placeholder="Choose a Training agenda">
+                        <option value="" disabled selected>Choose a training_agenda</option>
                         <option value="Behavior">Behavior</option>
                         <option value="Resolution">Resolution</option>
                     </select>
-                </div>
-                    <select class="form-select" aria-label="Default select example" name="behavior_training_topic" id="behavior_training_topic">
-                        <option selected>Choose a behavior_training_topic</option>
+                    <select class="form-select optional" aria-label="Default select example" name="behavior_training_topic" id="behavior_training_topic"placeholder="Choose a Behavior Training Topic">
+                        <option value="" disabled selected>Choose a behavior_training_topic</option>
                         <option value="Greeting">Greeting</option>
                         <option value="Care & Enthusiasm">Care & Enthusiasm</option>
                         <option value="Communication">Communication</option>
@@ -265,19 +274,20 @@
                         <option value="Interaction Handling Skills">Interaction Handling Skills</option>
 
                     </select>
-                    <select class="form-select" aria-label="Default select example" name="resolution_training_topic" id="resolution_training_topic">
-                        <option selected>Choose a resolution_training_topic</option>
+                    <select class="form-select optional" aria-label="Default select example" name="resolution_training_topic" id="resolution_training_topic"placeholder="Choose a Resultion Trainig Topic">
+                        <option value="" disabled selected>Choose a resolution_training_topic</option>
                         <option value="Probing">Probing</option>
                         <option value="System Usage & Action">System Usage & Action</option>
                         <option value="SOP Followed">SOP Followed</option>
                         <option value="Correct/Complete Information">Correct/Complete Information</option>
                     </select>
-                
+                    </div>
+
                 
                 <textarea type="textarea" name="comment" placeholder="Comment" rows="5"></textarea>
                 <input type="button" name="previous" class="previous action-button-previous" value="Previous">
-                <!-- <input type="submit"  class="submit action-button" value="Submit"> -->
-                <button type="submit" class="btn btn-primary" >Submit</button>
+                <input type="submit"  name="submit" class="submit action-button" value="Submit">
+                <!-- <button type="submit" class="submit action-button" >Submit</button> -->
                 </div>
               </fieldset>
             <!-- fieldset 5 end -->
@@ -300,7 +310,7 @@
   
 
     const select = document.querySelector('#training_required');
-    const div = document.querySelector('#training_div');
+    const div = document.querySelector('#training_agenda_div');
     const agenda = document.querySelector('#training_agenda');
     const behavior = document.querySelector('#behavior_training_topic');
     const training=document.querySelector('#resolution_training_topic');
@@ -311,29 +321,61 @@
 // console.log(agenda,training,behavior);
     select.addEventListener('change', function() {
     const selectedValue = this.value;
-    if (selectedValue === 'yes') {
+    // console.log(selectedValue);
+    if(selectedValue === 'yes'){
+      // console.log('ok');
         agenda.style.display = 'block';
-    } else {
-        agenda.style.display = 'none';
-    }
-    });
-  agenda.addEventListener('change',function(){
-
-    const selectedValue =this.value;
-    if(selectedValue=='Behavior'){
-      behavior.style.display='block';
+        training.style.display='none';
+        behavior.style.display='none';
     }else{
-      training.style.display='block';
-    }
-  });
+      agenda.style.display='none';
+      training.style.display='none';
+      behavior.style.display='none';
+    } 
+    });
+
+    agenda.addEventListener('change',function(){
+
+      const selectedValue = this.value;
+      // console.log(selectedValue);
+      if(selectedValue === 'Behavior'){
+        behavior.style.display='block';
+        training.style.display='none';
+
+      }else{
+        training.style.display='block';
+        behavior.style.display='none';
+
+      }
+    });
+ 
   
   $(".next").click(function () {
     if (animating) return false;
+
+      var allFieldsFilled = true;
+      var emptyFields = [];
+      $(this).parent().find("input:not(.optional),select").each(function () {
+        if (!$(this).val()) {
+          allFieldsFilled = false;
+          emptyFields.push($(this).attr("placeholder"));
+        }
+      });
+
+      if (!allFieldsFilled) {
+        var errorMessage = "Please fill in the following fields before moving to the next step: \n";
+        for (var i = 0; i < emptyFields.length; i++) {
+          errorMessage += "\t- " + emptyFields[i] + "\n";
+        }
+        alert(errorMessage);
+        return false;
+      }
     animating = true;
   
     current_fs = $(this).parent();
     next_fs = $(this).parent().next();
-  
+
+
     //activate next step on progressbar using the index of next_fs
     $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
   
@@ -401,7 +443,25 @@
   });
   
   $(".submit").click(function () {
-    return false;
+
+    var allFieldsFilled = true;
+      var emptyFields = [];
+      $(this).parent().find("textarea,select:not(.optional)").each(function () {
+        if (!$(this).val()) {
+          allFieldsFilled = false;
+          emptyFields.push($(this).attr("placeholder"));
+        }
+      });
+
+      if (!allFieldsFilled) {
+        var errorMessage = "Please fill in the following fields before moving to the next step: \n";
+        for (var i = 0; i < emptyFields.length; i++) {
+          errorMessage += "\t- " + emptyFields[i] + "\n";
+        }
+        alert(errorMessage);
+        return false;
+      }
+    return true;
   });
   //# sourceURL=pen.js
       </script>
