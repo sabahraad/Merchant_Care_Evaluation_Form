@@ -13,15 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 
 Auth::routes([
     
     'register' => false
 
 ]);
+
+Route::group(['middleware' => 'User'], function () {
+
+    Route::get('/', function () {
+        return view('auth.login');
+    });
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/form_data', [App\Http\Controllers\HomeController::class, 'form_data'])->name('form_data');
