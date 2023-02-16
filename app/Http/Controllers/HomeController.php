@@ -52,6 +52,15 @@ class HomeController extends Controller
         $result = form_data::orderBy('created_at','DESC')->get();
         return view('form_data',compact('result'));
     }
+
+    public function search(Request $request)
+    {
+        $e=$request->interaction_date;
+        $r=$request->evaluation_date;
+        $result = form_data::where('interaction_date',$e)->orWhere('evaluation_date',$r)->get();
+        return view('form_data',compact('result'));
+    }
+
     public function data(Request $request)
     {
        
