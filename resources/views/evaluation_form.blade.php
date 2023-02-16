@@ -220,7 +220,7 @@
                     <option value="5">5</option>
                     <option value="fatal error">fatal error</option>
                 </select>
-                <select class="form-select" aria-label="Default select example" name="fatal_error"placeholder="Choose a Fatal Error">
+                <select class="form-select" aria-label="Default select example" name="fatal_error" id="fatal_error_id" placeholder="Choose a Fatal Error">
                     <option value="" disabled selected>Choose a fatal_error</option>
                     <option value="yes">yes</option>
                     <option value="no">No</option>
@@ -314,10 +314,21 @@
     const agenda = document.querySelector('#training_agenda');
     const behavior = document.querySelector('#behavior_training_topic');
     const training=document.querySelector('#resolution_training_topic');
+    const fatal_error_id=document.querySelector('#fatal_error_id');
+    const fatal_reason_id=document.querySelector('#fatal_reason_id');
     agenda.style.display='none';
     training.style.display='none';
     behavior.style.display='none';
+    fatal_reason_id.style.display='none';
 
+    fatal_error_id.addEventListener('change',function(){
+      const selectedValue =this.value;
+      if(selectedValue==="yes"){
+        fatal_reason_id.style.display='block';
+      }else{
+        fatal_reason_id.style.display='none';
+      }
+    });
 // console.log(agenda,training,behavior);
     select.addEventListener('change', function() {
     const selectedValue = this.value;
@@ -349,7 +360,15 @@
       }
     });
  
-  
+    $.ajax({
+      
+      type: "GET",
+      url: "http://localhost:8000/option",
+      success: function(data) {
+          
+      }
+    });
+
   $(".next").click(function () {
     if (animating) return false;
 

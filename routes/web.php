@@ -37,5 +37,6 @@ Route::post('/from_data', [App\Http\Controllers\HomeController::class, 'data'])-
 Route::get('/new_form', [App\Http\Controllers\HomeController::class, 'new_form'])->name('new_form');
 Route::get('/option', [App\Http\Controllers\HomeController::class, 'option'])->name('option');
 Route::post('/informationSubcategory', [App\Http\Controllers\HomeController::class, 'informationSubcategory'])->name('informationSubcategory');
+Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 
